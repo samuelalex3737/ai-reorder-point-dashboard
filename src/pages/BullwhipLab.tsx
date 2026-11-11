@@ -308,5 +308,10 @@ function stageTableStory(lab: LabResult): string {
   const a = lab.runs.baseline.stages;
   const c = lab.runs.aiRouting.stages;
   const invCut = 1 - (c.distributor.avgInventory + c.manufacturer.avgInventory) / (a.distributor.avgInventory + a.manufacturer.avgInventory);
-  return `Upstream stock (distributors plus manufacturer) averages ${fmt(a.distributor.avgInventory + a.manufacturer.avgInventory)} units in the baseline and ${fmt(c.distributor.avgInventory + c.manufacturer.avgInventory)} with both AI levers, ${invCut >= 0 ? `${fmt(invCut * 100, 0)}% less` : `${fmt(-invCut * 100, 0)}% more`}. Retailer fill rate goes from ${pct(a.retailer.fillRate, 1)} to ${pct(c.retailer.fillRate, 1)}, and manufacturer fill rate from ${pct(a.manufacturer.fillRate, 1)} to ${pct(c.manufacturer.fillRate, 1)}: less amplification means less over-stocking and fewer shortfalls at the same time.`;
+  return (
+    `Upstream stock (distributors plus manufacturer) averages ${fmt(a.distributor.avgInventory + a.manufacturer.avgInventory)} units in the baseline and ${fmt(c.distributor.avgInventory + c.manufacturer.avgInventory)} with both AI levers, ${invCut >= 0 ? `${fmt(invCut * 100, 0)}% less` : `${fmt(-invCut * 100, 0)}% more`}. ` +
+    (a.retailer.fillRate > 0.9995 && c.retailer.fillRate > 0.9995 && a.manufacturer.fillRate > 0.9995 && c.manufacturer.fillRate > 0.9995
+      ? "Fill rates stay at 100% in every run, so the saving comes purely from carrying less stock for the same service."
+      : `Retailer fill rate goes from ${pct(a.retailer.fillRate, 1)} to ${pct(c.retailer.fillRate, 1)}, and manufacturer fill rate from ${pct(a.manufacturer.fillRate, 1)} to ${pct(c.manufacturer.fillRate, 1)}: less amplification means less over-stocking and fewer shortfalls at the same time.`)
+  );
 }

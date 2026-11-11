@@ -99,7 +99,7 @@ export function StageCostChart({ lab }: { lab: LabResult }) {
       tooltip: { ...tooltip, axisPointer: { type: "shadow" }, valueFormatter: (v: unknown) => `$${fmt(Number(v))}` },
       legend,
       grid: grid({ top: 56, left: 72 }),
-      xAxis: { type: "category", data: RUN_KEYS.map((k) => RUNS[k].short), ...axis("") },
+      xAxis: { type: "category", data: RUN_KEYS.map((k) => RUNS[k].short), ...axis(""), axisLabel: { color: C.text, fontSize: 10.5, interval: 0 } },
       yAxis: { type: "value", ...axis("Network cost over the scored weeks ($)", { nameGap: 58 }), axisLabel: { color: C.text, fontSize: 10, formatter: (v: number) => `$${fmt(v / 1000)}k` } },
       series: parts.map((p) => ({ name: p.name, type: "bar", stack: "c", barWidth: "45%", data: RUN_KEYS.map((k) => total(lab.runs[k], p.key)), itemStyle: { color: p.color } })),
     };

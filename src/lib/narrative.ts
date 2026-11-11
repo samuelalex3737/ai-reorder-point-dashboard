@@ -195,7 +195,7 @@ export function bullwhipHeadline(lab: LabResult): string {
   const save = a.totalCost - c.totalCost;
   return (
     `On the same ${a.weeks - a.warmup} weeks of real customer demand, the manufacturer's orders swing ${fmt(mA, 2)}x as much as customer demand in the baseline (variance ratio). ` +
-    `AI forecasting brings that to ${fmt(b.stages.manufacturer.bullwhip, 2)}x, and adding AI routing leaves ${fmt(mC, 2)}x: ` +
+    `AI forecasting brings that to ${fmt(b.stages.manufacturer.bullwhip, 2)}x, and adding AI routing leaves ${fmt(mC, 2)}x, ` +
     `so amplification at the manufacturer ${red >= 0 ? `falls by ${fmt(red, 0)}%` : `rises by ${fmt(-red, 0)}%`}. ` +
     `Total network cost falls from ${money(a.totalCost)} to ${money(c.totalCost)} (${save >= 0 ? `${money(save)} saved, ${fmt((save / a.totalCost) * 100, 1)}%` : `${money(-save)} more`}).`
   );
