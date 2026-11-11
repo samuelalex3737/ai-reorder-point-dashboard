@@ -12,6 +12,8 @@ It covers two tasks:
 
 Everything runs in the browser (two Web Workers), is seeded, and updates live as controls change.
 
+**Live dashboard:** https://ai-reorder-point-dashboard.vercel.app
+
 ## Run locally
 
 Requires Node.js 20 or later.
