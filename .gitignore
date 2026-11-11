@@ -1,0 +1,24 @@
+# Dependencies and build output
+node_modules/
+dist/
+*.tsbuildinfo
+coverage/
+
+# Raw Kaggle data: 195 MB, over the GitHub file limit, never deployed.
+# Only the 3-SKU weekly extract in public/data/ is published.
+archive/
+*.zip
+
+# Course reference material, kept local
+Untitled5.ipynb
+Screenshot*.png
+slide_*
+engine.py
+
+# Local tooling
+.claude/
+.vercel/
+.env*
+*.log
+.DS_Store
+Thumbs.db

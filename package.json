@@ -1,0 +1,48 @@
+{
+  "name": "ai-reorder-point-dashboard",
+  "private": true,
+  "version": "1.0.0",
+  "description": "AI-enhanced reorder point and inventory intelligence dashboard: ML demand forecasting, dynamic safety stock with Monte Carlo, and Bayesian optimisation of (s, Q) policies.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "typecheck": "tsc -b",
+    "prepare-data": "tsx scripts/prepare-data.ts",
+    "train-lstm": "tsx scripts/train-lstm.ts",
+    "verify": "tsx scripts/verify-models.ts"
+  },
+  "dependencies": {
+    "@fontsource-variable/inter": "^5.1.0",
+    "@fontsource/jetbrains-mono": "^5.1.1",
+    "@tensorflow/tfjs": "^4.22.0",
+    "echarts": "^5.5.1",
+    "framer-motion": "^11.11.17",
+    "idb-keyval": "^6.2.1",
+    "lucide-react": "^0.456.0",
+    "papaparse": "^5.4.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "zustand": "^4.5.5"
+  },
+  "devDependencies": {
+    "@types/node": "^22.9.0",
+    "@types/papaparse": "^5.3.15",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.3",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.14",
+    "tsx": "^4.19.2",
+    "typescript": "~5.6.3",
+    "vite": "^5.4.11",
+    "vitest": "^2.1.5"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true,
+    "esbuild@0.21.5": true
+  }
+}
