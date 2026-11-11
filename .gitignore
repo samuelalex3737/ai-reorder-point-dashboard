@@ -22,3 +22,7 @@ engine.py
 *.log
 .DS_Store
 Thumbs.db
+
+# Submission documents (contain student details; not published)
+*.docx
+*.pdf
